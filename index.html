@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novatel Bonn | Handy & Elektronik Reparatur</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <!-- Add Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: #f8f9fc;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .glassmorphism {
+            background: rgba(255,255,255,0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.18);
+        }
+        .swiper { width: 100%; height: 400px; margin-bottom: 2rem; }
+        .swiper-slide { text-align: center; background: #fff; display: flex; justify-content: center; align-items: center; }
+        .swiper-slide img { max-width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Sidebar Styles */
+        .sidebar { 
+            min-width: 340px;
+            max-width: 340px;
+        }
+        @media (max-width: 1280px) {
+            .sidebar {
+                min-width: 320px;
+                max-width: 320px;
+            }
+        }
+        @media (max-width: 1024px) {
+            .sidebar {
+                min-width: 280px;
+                max-width: 280px;
+            }
+        }
+        .submenu { display: none; }
+        .submenu.active { display: block; }
+        .submenu-item { padding-left: 3.5rem; }
+        .nav-item.has-submenu { position: relative; }
+        
+        
+        /* Main content container */
+        .main-container {
+            max-width: calc(100% - 340px);
+            width: 100%;
+            margin-left: 340px; /* Adjust for fixed sidebar */
+        }
+        @media (max-width: 1280px) {
+            .main-container {
+                max-width: calc(100% - 320px);
+                margin-left: 320px; /* Adjust for fixed sidebar */
+            }
+        }
+        @media (max-width: 1024px) {
+            .main-container {
+                max-width: calc(100% - 280px);
+                margin-left: 280px; /* Adjust for fixed sidebar */
+            }
+        }
+        @media (max-width: 768px) {
+            .main-container {
+                max-width: 100%;
+                margin-left: 0; /* Sidebar becomes full width and fixed at bottom */
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="glassmorphism fixed top-0 left-0 right-0 h-16 z-50 flex items-center justify-between px-6">
+        <div class="flex items-center">
+            <span class="text-2xl font-bold text-gray-800">Novatel Bonn</span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600">
+                <i class="ri-user-line ri-lg"></i>
+            </div>
+        </div>
+    </header>
+    <div class="flex min-h-screen bg-[#f8f9fc] mt-20">
+        <!-- Sidebar -->
+        <aside class="sidebar bg-white shadow-xl pt-8 pb-8 px-4 hidden md:block hidden md:block">
+            <nav>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100 active">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-home-4-line text-xl"></i></span>
+                            Startseite
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="iphone.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            iPhone Modell bestimmen
+                        </a>
+                    </li>
+
+                    <li>
+                         <button class="nav-item has-submenu w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700">
+                                 <i class="ri-smartphone-line text-xl"></i>
+                             </span>
+                             <span class="flex-1 min-w-0">Samsung Galaxy Reparatur</span>
+                             <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                         </button>
+                         <ul class="submenu mt-2 space-y-1">
+                             <li>
+                                 <a href="samsung.html" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition  ">
+                                     Galaxy samsung page
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="#" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                                     Galaxy S22 Serie
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="#" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                                     Galaxy A Serie
+                                 </a>
+                             </li>
+                             <li>
+                                 <a href="#" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                                     Galaxy Z Fold/Flip
+                                 </a>
+                             </li>
+                         </ul>
+                     </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            Samsung Galaxy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            Xiaomi Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            OnePlus Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            Google Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            Sony Xperia Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            LG Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            Huawei Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            HTC Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
+                            Nokia Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-tablet-line text-xl"></i></span>
+                            iPad & Tablet Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-macbook-line text-xl"></i></span>
+                            MacBook Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-computer-line text-xl"></i></span>
+                            iMac Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-apple-watch-line text-xl"></i></span>
+                            Smartwatch Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-laptop-line text-xl"></i></span>
+                            Computer Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-cpu-line text-xl"></i></span>
+                            Platinen Reparatur
+                        </a>
+                    </li>
+                   
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-truck-line text-xl"></i></span>
+                            Gerät einschicken – 24H Express
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-newspaper-line text-xl"></i></span>
+                            News & Angebote
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-briefcase-line text-xl"></i></span>
+                            Job Angebote
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-contacts-book-line text-xl"></i></span>
+                            Kontakt
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-file-text-line text-xl"></i></span>
+                            Impressum
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <!-- Main Content -->
+        <main class="main-container flex-1 flex justify-center items-start p-6">
+            <div class="w-full max-w-6xl bg-white rounded-2xl shadow-lg p-8 mt-8 glassmorphism">
+                <!-- Hero Slider -->
+                <div class="swiper heroSwiper mb-12">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="relative w-full h-full">
+                                <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?q=80&w=1200" alt="iPhone Screen Repair" class="w-full h-full object-cover rounded-xl" />
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/70 to-transparent rounded-b-xl">
+                                    <h2 class="text-3xl font-bold mb-2">iPhone Bildschirm Reparatur</h2>
+                                    <p class="text-xl">Professionelle Reparatur in nur 20 Minuten</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="relative w-full h-full">
+                                <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?q=80&w=1200" alt="Special Offers" class="w-full h-full object-cover rounded-xl" />
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/70 to-transparent rounded-b-xl">
+                                    <h2 class="text-3xl font-bold mb-2">Monats Angebote</h2>
+                                    <p class="text-xl">Bis zu 20% Rabatt auf ausgewählte Reparaturen</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <!-- Hero Section -->
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-bold text-gray-800 mb-4">Willkommen bei Novatel Bonn</h1>
+                    <div class="mb-8 p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg relative overflow-hidden">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-2 bg-cyan-300 rounded-b-xl"></div>
+                        <div class="flex items-center justify-center mb-4">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mr-3"><i class="ri-flashlight-line text-2xl"></i></span>
+                            <strong class="text-2xl">20 Minuten Sofortreparatur-Service vor Ort</strong>
+                        </div>
+                        <p class="text-lg">Express Service für Smartphones, Tablets, Computer und mehr. Reparatur im Laden oder per Versand – schnell, professionell und mit Zufriedenheitsgarantie!</p>
+                    </div>
+                </div>
+
+                <!-- Service Features -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center p-8 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg">
+                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-200 text-purple-700 mb-4"><i class="ri-shield-check-line text-3xl"></i></span>
+                        <h3 class="text-xl font-semibold mb-3">Original Ersatzteile</h3>
+                        <p>Wir verwenden ausschließlich originale Ersatzteile der Hersteller oder zertifizierte OEM Ersatzteile mit Garantie. Keine Nachbauten.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg">
+                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-200 text-cyan-700 mb-4"><i class="ri-star-smile-line text-3xl"></i></span>
+                        <h3 class="text-xl font-semibold mb-3">Zufriedenheitsgarantie</h3>
+                        <p>Autorisierte und zertifizierte Werkstatt seit 2004! Ausgezeichnet bewertet von unseren Kunden.</p>
+                    </div>
+                    <div class="text-center p-8 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg">
+                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-200 text-purple-700 mb-4"><i class="ri-customer-service-2-line text-3xl"></i></span>
+                        <h3 class="text-xl font-semibold mb-3">Kostenlose Beratung</h3>
+                        <p>Wir bieten Ihnen stets kostenlos die beste Beratung, von Montag bis Samstag 10-19Uhr.</p>
+                    </div>
+                </div>
+
+                <!-- Promotional Banner -->
+                <div class="mb-12">
+                    <div class="relative overflow-hidden rounded-2xl">
+                        <img src="https://images.unsplash.com/photo-1605170439002-90845e8c0137?q=80&w=1200" alt="Special Repair Offer" class="w-full h-64 object-cover" />
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-cyan-900/80 flex items-center justify-center text-white p-8">
+                            <div class="text-center">
+                                <h2 class="text-4xl font-bold mb-4">Sonder Angebot des Monats</h2>
+                                <p class="text-xl mb-6">iPhone 13 Bildschirmreparatur jetzt nur 129,90€</p>
+                                <button class="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
+                                    Jetzt Termin vereinbaren
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Current Repair Offers -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Aktuelle Reparatur Angebote</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-200 text-purple-700 mb-3"><i class="ri-smartphone-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">iPhone 14</h3>
+                            <div class="text-2xl font-bold text-purple-700 mb-3">ab 149,90€</div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>Express Reparatur Service</li>
+                                <li>12 Monate Garantie</li>
+                                <li>Kein Datenverlust</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mb-3"><i class="ri-smartphone-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">iPhone 12 (Alle)</h3>
+                            <div class="text-2xl font-bold text-cyan-700 mb-3">ab 119,90€</div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>Express Reparatur Service</li>
+                                <li>12 Monate Garantie</li>
+                                <li>Kein Datenverlust</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-200 text-purple-700 mb-3"><i class="ri-smartphone-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">iPhone 11</h3>
+                            <div class="text-2xl font-bold text-purple-700 mb-3">ab 99,90€</div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>Express Reparatur Service</li>
+                                <li>12 Monate Garantie</li>
+                                <li>Kein Datenverlust</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mb-3"><i class="ri-smartphone-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">iPhone 11 PRO & PRO MAX</h3>
+                            <div class="text-2xl font-bold text-cyan-700 mb-3">ab 109,90€</div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>Express Reparatur Service</li>
+                                <li>12 Monate Garantie</li>
+                                <li>Kein Datenverlust</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-200 text-purple-700 mb-3"><i class="ri-smartphone-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">iPhone X/XR/XS</h3>
+                            <div class="text-2xl font-bold text-purple-700 mb-3">ab 89,90€</div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>Express Reparatur Service</li>
+                                <li>12 Monate Garantie</li>
+                                <li>Kein Datenverlust</li>
+                            </ul>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mb-3"><i class="ri-smartphone-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">iPhone XS MAX</h3>
+                            <div class="text-2xl font-bold text-cyan-700 mb-3">ab 119,90€</div>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>Express Reparatur Service</li>
+                                <li>12 Monate Garantie</li>
+                                <li>Kein Datenverlust</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Bequeme Bezahlmöglichkeiten</h2>
+                    <p class="text-center text-gray-600 mb-8">Sie können bei uns aus 3 bequemen Bezahlmöglichkeiten auswählen</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-200 text-purple-700 mb-3"><i class="ri-bank-card-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">VORKASSE</h3>
+                            <p class="text-sm text-gray-600">Überweisung vor der Reparatur</p>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mb-3"><i class="ri-money-euro-circle-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">BARZAHLUNG</h3>
+                            <p class="text-sm text-gray-600">Direkte Zahlung vor Ort</p>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-200 text-purple-700 mb-3"><i class="ri-truck-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">NACHNAHME</h3>
+                            <p class="text-sm text-gray-600">Zahlung bei Lieferung</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Features -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Unser Service</h2>
+                    <p class="text-center text-gray-600 mb-8">17 Jahre Erfahrung als Service für Sie!</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mb-3"><i class="ri-shield-check-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">KEIN DATENVERLUST</h3>
+                            <p class="text-sm text-gray-600">Bei uns gehen alle Ihre Daten nicht verloren, es werden keinerlei Daten gelöscht.</p>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-purple-200 text-purple-700 mb-3"><i class="ri-file-list-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">KOSTENVORANSCHLÄGE</h3>
+                            <p class="text-sm text-gray-600">Bei uns können Sie auch Kostenvoranschläge, zum Beispiel für Ihre Versicherung, beantragen.</p>
+                        </div>
+                        <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mb-3"><i class="ri-customer-service-2-line text-2xl"></i></span>
+                            <h3 class="text-lg font-semibold mb-2">KOSTENLOSE BERATUNG</h3>
+                            <p class="text-sm text-gray-600">Wir bieten Ihnen stets kostenlos die beste Beratung, von Montag bis Samstag 10-19Uhr.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Repair Services -->
+                <div class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Wir reparieren alle Schäden</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="p-4 rounded-lg bg-cyan-50 flex items-center gap-3"><i class="ri-cpu-line text-xl text-purple-500"></i> Chip-Level-Platinen Reparatur</div>
+                        <div class="p-4 rounded-lg bg-purple-50 flex items-center gap-3"><i class="ri-smartphone-line text-xl text-cyan-500"></i> Glas / Touch / Displayschaden</div>
+                        <div class="p-4 rounded-lg bg-cyan-50 flex items-center gap-3"><i class="ri-battery-line text-xl text-purple-500"></i> Akku / Batterie Austausch</div>
+                        <div class="p-4 rounded-lg bg-purple-50 flex items-center gap-3"><i class="ri-water-flash-line text-xl text-cyan-500"></i> Wasserschaden Reparatur</div>
+                        <div class="p-4 rounded-lg bg-cyan-50 flex items-center gap-3"><i class="ri-settings-3-line text-xl text-purple-500"></i> Software Reparatur</div>
+                        <div class="p-4 rounded-lg bg-purple-50 flex items-center gap-3"><i class="ri-plug-line text-xl text-cyan-500"></i> Ladebuchse Reparatur</div>
+                        <div class="p-4 rounded-lg bg-cyan-50 flex items-center gap-3"><i class="ri-signal-tower-line text-xl text-purple-500"></i> Netz / Empfangsprobleme</div>
+                        <div class="p-4 rounded-lg bg-purple-50 flex items-center gap-3"><i class="ri-volume-up-line text-xl text-cyan-500"></i> Defekte Knöpfe</div>
+                        <div class="p-4 rounded-lg bg-cyan-50 flex items-center gap-3"><i class="ri-volume-up-line text-xl text-purple-500"></i> Audio Probleme</div>
+                        <div class="p-4 rounded-lg bg-purple-50 flex items-center gap-3"><i class="ri-video-line text-xl text-cyan-500"></i> Video Probleme</div>
+                        <div class="p-4 rounded-lg bg-cyan-50 flex items-center gap-3"><i class="ri-camera-line text-xl text-purple-500"></i> Kamera Reparatur</div>
+                        <div class="p-4 rounded-lg bg-purple-50 flex items-center gap-3"><i class="ri-wifi-line text-xl text-cyan-500"></i> Wifi Probleme</div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Kontakt & Öffnungszeiten</h2>
+                    <div class="p-8 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg">
+                        <div class="flex items-center justify-center mb-4">
+                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mr-3"><i class="ri-contacts-book-line text-2xl"></i></span>
+                            <strong class="text-2xl">NOVATEL Bonn Filiale</strong>
+                        </div>
+                        <div class="text-center text-lg">
+                            Kölnstrasse 1, 53111 Bonn (Gegenüber Mc Donalds)<br>
+                            Tel: +49 (0) 228 7218 73 73<br>
+                            E-Mail: info@novatelbonn.com<br>
+                            Mo.–Sa. 10:00–19:00 Uhr
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.heroSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Handle submenu toggles
+        document.querySelectorAll('.has-submenu').forEach(button => {
+            button.addEventListener('click', () => {
+                const submenu = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                
+                // Close all other submenus
+                document.querySelectorAll('.has-submenu').forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.setAttribute('aria-expanded', 'false');
+                        otherButton.nextElementSibling.classList.remove('show');
+                    }
+                });
+                
+                // Toggle current submenu
+                button.setAttribute('aria-expanded', !isExpanded);
+                submenu.classList.toggle('show');
+            });
+        });
+
+        // Set active states based on current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname;
+            const navItems = document.querySelectorAll('.nav-item');
+            
+            navItems.forEach(item => {
+                const link = item.getAttribute('href');
+                if (link && (currentPath.endsWith(link) || currentPath === link)) {
+                    item.classList.add('active');
+                    
+                    // If it's a submenu item, also activate its parent
+                    const parentSubmenu = item.closest('.submenu');
+                    if (parentSubmenu) {
+                        const parentButton = parentSubmenu.previousElementSibling;
+                        parentButton.classList.add('active');
+                        parentButton.setAttribute('aria-expanded', 'true');
+                        parentSubmenu.classList.add('show');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

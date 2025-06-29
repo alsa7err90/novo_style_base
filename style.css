@@ -1,0 +1,302 @@
+/* Base styles */
+:root {
+    --primary-gradient: linear-gradient(to right, rgb(243 232 255), rgb(236 254 255));
+    --hover-gradient: linear-gradient(to right, rgb(230 208 255), rgb(224 242 254));
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 340px;
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+    position: fixed;
+    top: 4rem; /* 16 (header height) + 24 (mt-24) = 40 units, 40 * 0.25rem = 10rem */
+    left: 0;
+    z-index: 40; /* Ensure it's below the header but above content */
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+}
+
+/* Navigation items */
+.nav-item {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-item span:first-child {
+    flex-shrink: 0;
+}
+
+.nav-item span:nth-child(2) {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Dropdown arrow */
+.nav-item .dropdown-arrow {
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.nav-item.has-submenu.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Active state */
+.nav-item.active::before,
+.nav-item.has-submenu.active::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8rem;
+    height: 0.3rem;
+    background-color: rgb(103 232 249);
+    border-radius: 0 0 0.75rem 0.75rem;
+    z-index: 1;
+}
+
+/* Submenu styles */
+.submenu {
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.submenu.active,
+.submenu.show {
+    display: block;
+}
+
+.submenu-item {
+    position: relative;
+    transition: all 0.3s ease;
+    margin: 0.5rem 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(to right, rgba(243, 232, 255, 0.3), rgba(236, 254, 255, 0.3));
+}
+
+.submenu-item:hover {
+    background: linear-gradient(to right, rgba(243, 232, 255, 0.8), rgba(236, 254, 255, 0.8));
+    transform: translateX(0.5rem);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.submenu-item.active {
+    background: linear-gradient(to right, rgb(243, 232, 255), rgb(236, 254, 255));
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: scale(1.02);
+}
+
+.submenu-item.active::after {
+    content: '';
+    position: absolute;
+    right: -0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.25rem;
+    height: 60%;
+    background: linear-gradient(to bottom, rgb(103, 232, 249), rgb(167, 243, 255));
+    border-radius: 1rem;
+}
+
+/* Glassmorphism effect */
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+/* Card hover effects */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Customer logo grayscale effect */
+.customer-logo {
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.customer-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-down {
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 50;
+    }
+    
+    .nav-item.active::before,
+    .nav-item[aria-expanded="true"]::before,
+    .submenu-item.active::before {
+        width: 6rem;
+    }
+}
+
+/* Table styles */
+.table-prices {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    border: 1px solid #d1d5db;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table-prices th,
+.table-prices td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid #d1d5db;
+    font-size: 0.95rem;
+}
+
+.table-prices th {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.table-prices tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.table-prices tr:hover {
+    background-color: #f3f4f6;
+}
+
+.table-prices tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White background for odd rows */
+}
+
+.table-prices tbody tr:nth-child(even) {
+    background-color: #f8f9fa; /* Light background for even rows */
+}
+
+.table-prices tbody tr:hover {
+    background-color: #e2e8f0; /* Highlight on hover */
+}
+
+/* Sidebar styles */
+.sidebar-link {
+    @apply flex items-center px-4 py-3 text-gray-700 transition-all duration-300;
+}
+
+.sidebar-link.active {
+    @apply bg-gradient-to-r from-purple-50 to-cyan-50;
+}
+
+.sidebar-link i {
+    @apply text-xl mr-3 text-gray-500 transition-colors duration-300;
+}
+
+.sidebar-link.active i {
+    @apply text-purple-500;
+}
+
+.sidebar-link span {
+    @apply font-medium;
+}
+
+.sidebar-link.active span {
+    @apply text-purple-700;
+}
+
+/* Submenu styles */
+.submenu {
+    @apply hidden pl-8 mt-1 space-y-1;
+}
+
+.submenu.active {
+    @apply block;
+}
+
+.submenu-link {
+    @apply flex items-center px-4 py-2 text-gray-600 transition-all duration-300;
+}
+
+.submenu-link:hover {
+    @apply bg-gradient-to-r from-purple-50/50 to-cyan-50/50;
+}
+
+.submenu-link.active {
+    @apply bg-gradient-to-r from-purple-50 to-cyan-50;
+}
+
+/* Dropdown indicator */
+.dropdown-indicator {
+    @apply ml-auto text-gray-400 transition-transform duration-300;
+}
+
+.sidebar-link.active .dropdown-indicator {
+    @apply text-purple-500;
+}
+
+.sidebar-link[aria-expanded="true"] .dropdown-indicator {
+    @apply rotate-180;
+}
+
+/* Interactive hover effect */
+.interactive-hover {
+    @apply relative overflow-hidden;
+}
+
+.interactive-hover::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-purple-500/10 to-cyan-500/10 opacity-0 transition-opacity duration-300;
+}
+
+.interactive-hover:hover::after {
+    @apply opacity-100;
+}
