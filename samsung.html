@@ -1,87 +1,132 @@
 <!DOCTYPE html>
- <html lang="de">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Samsung Galaxy Reparatur Service</title>
-     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-     <link href="style.css" rel="stylesheet">
-     <!-- Add Swiper's CSS -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-     <style>
-         body { 
-             font-family: 'Inter', sans-serif; 
-             background: #f8f9fc;
-             overflow-x: hidden; /* Prevent horizontal scroll */
-         }
-         .glassmorphism {
-             background: rgba(255,255,255,0.85);
-             backdrop-filter: blur(10px);
-             -webkit-backdrop-filter: blur(10px);
-             border-bottom: 1px solid rgba(255,255,255,0.18);
-         }
-         .swiper { width: 100%; height: 400px; margin-bottom: 2rem; }
-         .swiper-slide { text-align: center; background: #fff; display: flex; justify-content: center; align-items: center; }
-         .swiper-slide img { max-width: 100%; height: 100%; object-fit: cover; }
-         
-         /* Sidebar Styles */
-         .sidebar { 
-             min-width: 340px;
-             max-width: 340px;
-         }
-         @media (max-width: 1280px) {
-             .sidebar {
-                 min-width: 320px;
-                 max-width: 320px;
-             }
-         }
-         @media (max-width: 1024px) {
-             .sidebar {
-                 min-width: 280px;
-                 max-width: 280px;
-             }
-         }
-         .submenu { display: none; }
-         .submenu.active { display: block; }
-         .submenu-item { padding-left: 3.5rem; }
-         .nav-item.has-submenu { position: relative; }
-         
-         
-         /* Main content container */
-         .main-container {
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy Reparatur Service</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <!-- Add Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fc;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 2rem;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            max-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            min-width: 340px;
+            max-width: 340px;
+        }
+
+        @media (max-width: 1280px) {
+            .sidebar {
+                min-width: 320px;
+                max-width: 320px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .sidebar {
+                min-width: 280px;
+                max-width: 280px;
+            }
+        }
+
+        .submenu {
+            display: none;
+        }
+
+        .submenu.active {
+            display: block;
+        }
+
+        .submenu-item {
+            padding-left: 3.5rem;
+        }
+
+        .nav-item.has-submenu {
+            position: relative;
+        }
+
+
+        /* Main content container */
+        .main-container {
             max-width: calc(100% - 340px);
             width: 100%;
-            margin-left: 340px; /* Adjust for fixed sidebar */
+            margin-left: 340px;
+            /* Adjust for fixed sidebar */
         }
-         @media (max-width: 1280px) {
+
+        @media (max-width: 1280px) {
             .main-container {
                 max-width: calc(100% - 320px);
-                margin-left: 320px; /* Adjust for fixed sidebar */
+                margin-left: 320px;
+                /* Adjust for fixed sidebar */
             }
         }
-         @media (max-width: 1024px) {
+
+        @media (max-width: 1024px) {
             .main-container {
                 max-width: calc(100% - 280px);
-                margin-left: 280px; /* Adjust for fixed sidebar */
+                margin-left: 280px;
+                /* Adjust for fixed sidebar */
             }
         }
-         @media (max-width: 768px) {
+
+        @media (max-width: 768px) {
             .main-container {
                 max-width: 100%;
-                margin-left: 0; /* Sidebar becomes full width and fixed at bottom */
+                margin-left: 0;
+                /* Sidebar becomes full width and fixed at bottom */
             }
         }
-     </style>
- </head>
- <body class="min-h-screen">
+    </style>
+</head>
+
+<body class="min-h-screen">
     <!-- Header -->
     <header class="glassmorphism fixed top-0 left-0 right-0 h-16 z-50 flex items-center justify-between px-6">
-        <div class="flex items-center space-x-4">
-            <button class="md:hidden w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-600">
-                <i class="ri-menu-line ri-lg"></i>
+        <div class="flex items-center">
+
+            <button id="toggleSidebar" class="block md:hidden text-gray-700 focus:outline-none">
+                <i class="ri-menu-line text-2xl"></i>
             </button>
+
+
             <span class="text-2xl font-bold text-gray-800">Novatel Bonn</span>
         </div>
         <div class="flex items-center space-x-4">
@@ -90,186 +135,261 @@
             </div>
         </div>
     </header>
-    <div class="flex min-h-screen bg-[#f8f9fc]  mt-20">
-         <!-- Sidebar -->
-         <aside class="sidebar fixed top-0 left-0 h-screen w-64 bg-white shadow-lg z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:block">
-             <nav>
-                 <ul class="space-y-2">
-                     <li>
-                         <a href="index.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100 ">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-home-4-line text-xl"></i></span>
-                             Startseite
-                         </a>
-                     </li>
- 
-                     <li>
-                         <a href="iphone.html" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             iPhone Modell bestimmen
-                         </a>
-                     </li>
- 
-                     <li>
-                         <button class="nav-item has-submenu w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700">
-                                 <i class="ri-smartphone-line text-xl"></i>
-                             </span>
-                             <span class="flex-1 min-w-0">Samsung Galaxy Reparatur</span>
-                             <i class="ri-arrow-down-s-line dropdown-arrow"></i>
-                         </button>
-                         <ul class="submenu mt-2 space-y-1">
-                             <li>
-                                 <a href="samsung.html" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition active">
-                                     Galaxy samsung page
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
-                                     Galaxy S22 Serie
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
-                                     Galaxy A Serie
-                                 </a>
-                             </li>
-                             <li>
-                                 <a href="#" class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
-                                     Galaxy Z Fold/Flip
-                                 </a>
-                             </li>
-                         </ul>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             Samsung Galaxy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             Xiaomi Handy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             OnePlus Handy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             Google Handy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             Sony Xperia Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             LG Handy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             Huawei Handy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             HTC Handy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-smartphone-line text-xl"></i></span>
-                             Nokia Handy Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-tablet-line text-xl"></i></span>
-                             iPad & Tablet Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-macbook-line text-xl"></i></span>
-                             MacBook Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-computer-line text-xl"></i></span>
-                             iMac Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-apple-watch-line text-xl"></i></span>
-                             Smartwatch Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-laptop-line text-xl"></i></span>
-                             Computer Reparatur
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-cpu-line text-xl"></i></span>
-                             Platinen Reparatur
-                         </a>
-                     </li>
-                    
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-truck-line text-xl"></i></span>
-                             Gerät einschicken – 24H Express
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-newspaper-line text-xl"></i></span>
-                             News & Angebote
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-briefcase-line text-xl"></i></span>
-                             Job Angebote
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i class="ri-contacts-book-line text-xl"></i></span>
-                             Kontakt
-                         </a>
-                     </li>
-                     <li>
-                         <a href="#" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
-                             <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i class="ri-file-text-line text-xl"></i></span>
-                             Impressum
-                         </a>
-                     </li>
-                 </ul>
-             </nav>
-         </aside>
+    <div class="flex min-h-screen bg-[#f8f9fc] mt-20">
+        <!-- Sidebar -->
+        <aside id="sidebar"
+            class="sidebar bg-white shadow-xl pt-8 pb-24 px-4  mt-16  fixed inset-y-0 left-0 w-64 transform -translate-x-full transition-transform duration-300 z-40 md:translate-x-0 md:block">
+            <nav>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="index.html"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100  ">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-home-4-line text-xl"></i></span>
+                            Startseite
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="iphone.html"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            iPhone Modell bestimmen
+                        </a>
+                    </li>
+
+                    <li>
+                        <button
+                            class="nav-item has-submenu w-full flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700">
+                                <i class="ri-smartphone-line text-xl"></i>
+                            </span>
+                            <span class="flex-1 min-w-0">Samsung Galaxy Reparatur</span>
+                            <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                        </button>
+                        <ul class="submenu mt-2 space-y-1">
+                            <li>
+                                <a href="samsung.html"
+                                    class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition active ">
+                                    Galaxy samsung page
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                                    Galaxy S22 Serie
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                                    Galaxy A Serie
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="submenu-item block py-2 px-4 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                                    Galaxy Z Fold/Flip
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            Samsung Galaxy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            Xiaomi Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            OnePlus Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            Google Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            Sony Xperia Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            LG Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            Huawei Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            HTC Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-smartphone-line text-xl"></i></span>
+                            Nokia Handy Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-tablet-line text-xl"></i></span>
+                            iPad & Tablet Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-macbook-line text-xl"></i></span>
+                            MacBook Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-computer-line text-xl"></i></span>
+                            iMac Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-apple-watch-line text-xl"></i></span>
+                            Smartwatch Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-laptop-line text-xl"></i></span>
+                            Computer Reparatur
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-cpu-line text-xl"></i></span>
+                            Platinen Reparatur
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-truck-line text-xl"></i></span>
+                            Gerät einschicken – 24H Express
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-newspaper-line text-xl"></i></span>
+                            News & Angebote
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-briefcase-line text-xl"></i></span>
+                            Job Angebote
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-cyan-50 to-purple-50 hover:from-cyan-100 hover:to-purple-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-cyan-200 text-cyan-700"><i
+                                    class="ri-contacts-book-line text-xl"></i></span>
+                            Kontakt
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl font-medium text-gray-700 shadow-sm transition bg-gradient-to-r from-purple-50 to-cyan-50 hover:from-purple-100 hover:to-cyan-100">
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-purple-200 text-purple-700"><i
+                                    class="ri-file-text-line text-xl"></i></span>
+                            Impressum
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
         <!-- Main Content -->
         <main class="main-container flex-1 flex justify-center items-start p-6">
-            <div class="w-full max-w-4xl bg-white rounded-2xl shadow-lg p-8 mt-8 glassmorphism">
+            <div class="w-full max-w-6xl bg-white rounded-2xl shadow-lg p-8 mt-8 glassmorphism">
+
                 <!-- Hero Section -->
                 <div class="relative w-full h-64 mb-8 rounded-xl overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=1200&auto=format&fit=crop&q=80" alt="Samsung Repair Service" class="w-full h-full object-cover" />
+                    <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=1200&auto=format&fit=crop&q=80"
+                        alt="Samsung Repair Service" class="w-full h-full object-cover" />
                     <div class="absolute inset-0 bg-gradient-to-r from-purple-900/80 to-cyan-900/80 flex items-center">
                         <div class="px-8">
                             <h1 class="text-4xl font-bold text-white mb-4">Samsung Galaxy Reparatur Service</h1>
@@ -278,18 +398,24 @@
                     </div>
                 </div>
 
-                <p class="text-lg text-gray-600 mb-6">20 Minuten Sofort Samsung Reparatur oder Online Innerhalb 24h. Wir bieten auch die EXPRESS-Reparatur für Samsung Smartphones in unserer Filiale an. Die Reparatur vor Ort dauert 20 Minuten, Sie können aber auch die Abwicklung per Versand für ihr Samsung Galaxy wählen, die 24 Stunden dauert.</p>
+                <p class="text-lg text-gray-600 mb-6">20 Minuten Sofort Samsung Reparatur oder Online Innerhalb 24h. Wir
+                    bieten auch die EXPRESS-Reparatur für Samsung Smartphones in unserer Filiale an. Die Reparatur vor
+                    Ort dauert 20 Minuten, Sie können aber auch die Abwicklung per Versand für ihr Samsung Galaxy
+                    wählen, die 24 Stunden dauert.</p>
 
                 <!-- Quality Badge -->
-                <div class="mb-8 p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg relative overflow-hidden">
+                <div
+                    class="mb-8 p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg relative overflow-hidden">
                     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-2 bg-cyan-300 rounded-b-xl"></div>
                     <div class="flex items-center justify-center mb-4">
-                        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mr-3">
+                        <span
+                            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mr-3">
                             <i class="ri-shield-check-line text-2xl"></i>
                         </span>
                         <strong class="text-2xl">Ihre Zufriedenheit ist uns wichtig!</strong>
                     </div>
-                    <p class="text-center text-gray-700">Deshalb gewähren wir auf jedes reparierte Ersatzteil eine Garantie von einem Jahr.</p>
+                    <p class="text-center text-gray-700">Deshalb gewähren wir auf jedes reparierte Ersatzteil eine
+                        Garantie von einem Jahr.</p>
                 </div>
 
                 <!-- Samsung Models Grid -->
@@ -297,11 +423,14 @@
                     <!-- Current Models -->
                     <div>
                         <h2 class="text-2xl font-semibold text-purple-600 mb-6">Aktuelle Samsung Modelle</h2>
-                        
+
                         <!-- Galaxy S23 Ultra -->
                         <div class="mb-6">
-                            <button type="button" class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-cyan-100 to-purple-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-cyan-200 hover:to-purple-200 transition" onclick="toggleAccordion('galaxyS23Ultra')">
-                                <span><i class="ri-smartphone-line mr-2 text-xl text-purple-400"></i>Galaxy S23 Ultra</span>
+                            <button type="button"
+                                class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-cyan-100 to-purple-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-cyan-200 hover:to-purple-200 transition"
+                                onclick="toggleAccordion('galaxyS23Ultra')">
+                                <span><i class="ri-smartphone-line mr-2 text-xl text-purple-400"></i>Galaxy S23
+                                    Ultra</span>
                                 <i class="ri-arrow-down-s-line text-2xl"></i>
                             </button>
                             <div id="galaxyS23Ultra" class="hidden mt-4">
@@ -314,11 +443,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr><td>Display Reparatur (Original AMOLED)</td><td>349,90€</td></tr>
-                                            <tr><td>Display Reparatur (Qualitäts LCD)</td><td>249,90€</td></tr>
-                                            <tr><td>Akku Austausch</td><td>79,90€</td></tr>
-                                            <tr><td>Backcover Reparatur</td><td>89,90€</td></tr>
-                                            <tr><td>Kameraglas Reparatur</td><td>69,90€</td></tr>
+                                            <tr>
+                                                <td>Display Reparatur (Original AMOLED)</td>
+                                                <td>349,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Display Reparatur (Qualitäts LCD)</td>
+                                                <td>249,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Akku Austausch</td>
+                                                <td>79,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Backcover Reparatur</td>
+                                                <td>89,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kameraglas Reparatur</td>
+                                                <td>69,90€</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -327,7 +471,9 @@
 
                         <!-- Galaxy S23+ -->
                         <div class="mb-6">
-                            <button type="button" class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-purple-200 hover:to-cyan-200 transition" onclick="toggleAccordion('galaxyS23Plus')">
+                            <button type="button"
+                                class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-purple-200 hover:to-cyan-200 transition"
+                                onclick="toggleAccordion('galaxyS23Plus')">
                                 <span><i class="ri-smartphone-line mr-2 text-xl text-cyan-500"></i>Galaxy S23+</span>
                                 <i class="ri-arrow-down-s-line text-2xl"></i>
                             </button>
@@ -341,11 +487,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr><td>Display Reparatur (Original AMOLED)</td><td>329,90€</td></tr>
-                                            <tr><td>Display Reparatur (Qualitäts LCD)</td><td>229,90€</td></tr>
-                                            <tr><td>Akku Austausch</td><td>69,90€</td></tr>
-                                            <tr><td>Backcover Reparatur</td><td>79,90€</td></tr>
-                                            <tr><td>Kameraglas Reparatur</td><td>59,90€</td></tr>
+                                            <tr>
+                                                <td>Display Reparatur (Original AMOLED)</td>
+                                                <td>329,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Display Reparatur (Qualitäts LCD)</td>
+                                                <td>229,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Akku Austausch</td>
+                                                <td>69,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Backcover Reparatur</td>
+                                                <td>79,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kameraglas Reparatur</td>
+                                                <td>59,90€</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -356,11 +517,14 @@
                     <!-- Older Models -->
                     <div>
                         <h2 class="text-2xl font-semibold text-cyan-700 mb-6">Faltbare Modelle</h2>
-                        
+
                         <!-- Galaxy Z Fold 4 -->
                         <div class="mb-6">
-                            <button type="button" class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-cyan-100 to-purple-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-cyan-200 hover:to-purple-200 transition" onclick="toggleAccordion('galaxyZFold4')">
-                                <span><i class="ri-smartphone-line mr-2 text-xl text-purple-400"></i>Galaxy Z Fold 4</span>
+                            <button type="button"
+                                class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-cyan-100 to-purple-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-cyan-200 hover:to-purple-200 transition"
+                                onclick="toggleAccordion('galaxyZFold4')">
+                                <span><i class="ri-smartphone-line mr-2 text-xl text-purple-400"></i>Galaxy Z Fold
+                                    4</span>
                                 <i class="ri-arrow-down-s-line text-2xl"></i>
                             </button>
                             <div id="galaxyZFold4" class="hidden mt-4">
@@ -373,11 +537,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr><td>Display Reparatur (Original Faltdisplay)</td><td>599,90€</td></tr>
-                                            <tr><td>Außendisplay Reparatur</td><td>299,90€</td></tr>
-                                            <tr><td>Akku Austausch</td><td>129,90€</td></tr>
-                                            <tr><td>Backcover Reparatur</td><td>99,90€</td></tr>
-                                            <tr><td>Kameraglas Reparatur</td><td>89,90€</td></tr>
+                                            <tr>
+                                                <td>Display Reparatur (Original Faltdisplay)</td>
+                                                <td>599,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Außendisplay Reparatur</td>
+                                                <td>299,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Akku Austausch</td>
+                                                <td>129,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Backcover Reparatur</td>
+                                                <td>99,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kameraglas Reparatur</td>
+                                                <td>89,90€</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -386,8 +565,11 @@
 
                         <!-- Galaxy Z Flip 4 -->
                         <div class="mb-6">
-                            <button type="button" class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-purple-200 hover:to-cyan-200 transition" onclick="toggleAccordion('galaxyZFlip4')">
-                                <span><i class="ri-smartphone-line mr-2 text-xl text-cyan-500"></i>Galaxy Z Flip 4</span>
+                            <button type="button"
+                                class="w-full flex justify-between items-center px-4 py-3 bg-gradient-to-r from-purple-100 to-cyan-100 rounded-lg font-semibold text-lg text-gray-800 focus:outline-none shadow-sm hover:from-purple-200 hover:to-cyan-200 transition"
+                                onclick="toggleAccordion('galaxyZFlip4')">
+                                <span><i class="ri-smartphone-line mr-2 text-xl text-cyan-500"></i>Galaxy Z Flip
+                                    4</span>
                                 <i class="ri-arrow-down-s-line text-2xl"></i>
                             </button>
                             <div id="galaxyZFlip4" class="hidden mt-4">
@@ -400,11 +582,26 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr><td>Display Reparatur (Original Faltdisplay)</td><td>499,90€</td></tr>
-                                            <tr><td>Außendisplay Reparatur</td><td>199,90€</td></tr>
-                                            <tr><td>Akku Austausch</td><td>119,90€</td></tr>
-                                            <tr><td>Backcover Reparatur</td><td>89,90€</td></tr>
-                                            <tr><td>Kameraglas Reparatur</td><td>79,90€</td></tr>
+                                            <tr>
+                                                <td>Display Reparatur (Original Faltdisplay)</td>
+                                                <td>499,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Außendisplay Reparatur</td>
+                                                <td>199,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Akku Austausch</td>
+                                                <td>119,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Backcover Reparatur</td>
+                                                <td>89,90€</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kameraglas Reparatur</td>
+                                                <td>79,90€</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -416,21 +613,24 @@
                 <!-- Service Features -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                     <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
-                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-200 text-purple-700 mb-4">
+                        <span
+                            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-200 text-purple-700 mb-4">
                             <i class="ri-timer-flash-line text-3xl"></i>
                         </span>
                         <h3 class="text-xl font-semibold mb-3">Express Reparatur</h3>
                         <p class="text-gray-600">Fast jede Reparatur innerhalb von 20 Minuten fertiggestellt.</p>
                     </div>
                     <div class="p-6 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg text-center">
-                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-200 text-cyan-700 mb-4">
+                        <span
+                            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cyan-200 text-cyan-700 mb-4">
                             <i class="ri-battery-2-charge-line text-3xl"></i>
                         </span>
                         <h3 class="text-xl font-semibold mb-3">Kostenfreier Akkutest</h3>
                         <p class="text-gray-600">Lassen Sie den Akku kostenlos bei uns überprüfen.</p>
                     </div>
                     <div class="p-6 rounded-xl bg-gradient-to-r from-cyan-50 to-purple-50 shadow-lg text-center">
-                        <span class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-200 text-purple-700 mb-4">
+                        <span
+                            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-200 text-purple-700 mb-4">
                             <i class="ri-shield-check-line text-3xl"></i>
                         </span>
                         <h3 class="text-xl font-semibold mb-3">Original Ersatzteile</h3>
@@ -441,22 +641,29 @@
                 <!-- Repair Advantages Section -->
                 <div class="mb-12">
                     <div class="text-center mb-8">
-                        <h2 class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">Ihre Reparatur Vorteile</h2>
+                        <h2
+                            class="text-3xl font-bold bg-gradient-to-r from-purple-600 to-cyan-600 bg-clip-text text-transparent">
+                            Ihre Reparatur Vorteile</h2>
                         <p class="text-gray-600 mt-2">Was uns besonders macht</p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="group hover:scale-105 transition-transform duration-300">
-                            <div class="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 hover:border-purple-300 transition-colors">
-                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 text-white">
+                            <div
+                                class="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 hover:border-purple-300 transition-colors">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 text-white">
                                     <i class="ri-timer-flash-line text-2xl"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold mb-2">Express-Reparatur</h3>
-                                <p class="text-gray-600">Fast jede Reparatur innerhalb von 20 Minuten fertiggestellt.</p>
+                                <p class="text-gray-600">Fast jede Reparatur innerhalb von 20 Minuten fertiggestellt.
+                                </p>
                             </div>
                         </div>
                         <div class="group hover:scale-105 transition-transform duration-300">
-                            <div class="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 hover:border-purple-300 transition-colors">
-                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 text-white">
+                            <div
+                                class="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 hover:border-purple-300 transition-colors">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 text-white">
                                     <i class="ri-shield-check-line text-2xl"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold mb-2">Garantie</h3>
@@ -464,8 +671,10 @@
                             </div>
                         </div>
                         <div class="group hover:scale-105 transition-transform duration-300">
-                            <div class="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 hover:border-purple-300 transition-colors">
-                                <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 text-white">
+                            <div
+                                class="bg-white rounded-2xl shadow-lg p-6 border border-purple-100 hover:border-purple-300 transition-colors">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-br from-purple-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 text-white">
                                     <i class="ri-secure-payment-line text-2xl"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold mb-2">Faire Preise</h3>
@@ -480,7 +689,8 @@
                     <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Kontakt & Öffnungszeiten</h2>
                     <div class="p-8 rounded-xl bg-gradient-to-r from-purple-50 to-cyan-50 shadow-lg">
                         <div class="flex items-center justify-center mb-4">
-                            <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mr-3">
+                            <span
+                                class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200 text-cyan-700 mr-3">
                                 <i class="ri-contacts-book-line text-2xl"></i>
                             </span>
                             <strong class="text-2xl">Handy Reparatur Service</strong>
@@ -497,51 +707,81 @@
         </main>
     </div>
 
+   
+    <!-- Add Swiper JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebarButton = document.querySelector('header .md\:hidden');
-            const sidebar = document.querySelector('.sidebar');
+        const swiper = new Swiper('.heroSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
 
-            if (sidebarButton && sidebar) {
-                sidebarButton.addEventListener('click', function() {
-                    sidebar.classList.toggle('active');
-                });
+        // Handle submenu toggles
+        document.querySelectorAll('.has-submenu').forEach(button => {
+            button.addEventListener('click', () => {
+                const submenu = button.nextElementSibling;
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-                // Close sidebar when clicking outside on small screens
-                document.addEventListener('click', function(event) {
-                    if (window.innerWidth <= 768 && !sidebar.contains(event.target) && !sidebarButton.contains(event.target)) {
-                        sidebar.classList.remove('active');
+                // Close all other submenus
+                document.querySelectorAll('.has-submenu').forEach(otherButton => {
+                    if (otherButton !== button) {
+                        otherButton.setAttribute('aria-expanded', 'false');
+                        otherButton.nextElementSibling.classList.remove('show');
                     }
                 });
 
-                // Close sidebar on resize if it's active and screen becomes large
-                window.addEventListener('resize', function() {
-                    if (window.innerWidth > 768) {
-                        sidebar.classList.remove('active');
-                    }
-                });
+                // Toggle current submenu
+                button.setAttribute('aria-expanded', !isExpanded);
+                submenu.classList.toggle('show');
+            });
+        });
 
-                // Add overflow-y: auto to sidebar for small screens
-                if (window.innerWidth <= 768) {
-                    sidebar.style.overflowY = 'auto';
+        // Set active states based on current page
+        document.addEventListener('DOMContentLoaded', () => {
+            const currentPath = window.location.pathname;
+            const navItems = document.querySelectorAll('.nav-item');
+
+            navItems.forEach(item => {
+                const link = item.getAttribute('href');
+                if (link && (currentPath.endsWith(link) || currentPath === link)) {
+                    item.classList.add('active');
+
+                    // If it's a submenu item, also activate its parent
+                    const parentSubmenu = item.closest('.submenu');
+                    if (parentSubmenu) {
+                        const parentButton = parentSubmenu.previousElementSibling;
+                        parentButton.classList.add('active');
+                        parentButton.setAttribute('aria-expanded', 'true');
+                        parentSubmenu.classList.add('show');
+                    }
                 }
-            }
-
-            // Submenu toggle logic
-            document.querySelectorAll('.nav-item.has-submenu').forEach(button => {
-                button.addEventListener('click', () => {
-                    const submenu = button.nextElementSibling;
-                    if (submenu && submenu.classList.contains('submenu')) {
-                        submenu.classList.toggle('active');
-                        const arrow = button.querySelector('.dropdown-arrow');
-                        if (arrow) {
-                            arrow.classList.toggle('ri-arrow-down-s-line');
-                            arrow.classList.toggle('ri-arrow-up-s-line');
-                        }
-                    }
-                });
             });
         });
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#toggleSidebar').on('click', function () {
+                $('#sidebar').toggleClass('-translate-x-full');
+            });
+        });
+    </script>
+
+
+
 </body>
+
 </html>
